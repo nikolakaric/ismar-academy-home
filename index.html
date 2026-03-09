@@ -11,13 +11,150 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
     <script>
+        const translations = {
+            en: {
+                features: "Features",
+                programs: "Programs",
+                contact: "Contact",
+                comingSoon: "Coming Soon",
+                heroTitle: "Elevate Your Game with",
+                heroSubtitle: "Ismar Salcinovic",
+                heroDesc: "The next generation of tennis excellence is arriving. Join the waitlist for exclusive access to elite coaching modules and court sessions.",
+                joinWaitlist: "Join the Waitlist",
+                exploreFeatures: "Explore Features",
+                whyTrain: "Why Train With Us?",
+                proTechnique: "Pro-Level Technique",
+                proTechniqueDesc: "Master the mechanics behind powerful serves and pinpoint groundstrokes with Ismar's proven methodology.",
+                mentalToughness: "Mental Toughness",
+                mentalToughnessDesc: "Tennis is 90% mental. Learn strategies to stay composed and focused during high-pressure match points.",
+                videoAnalysis: "Video Analysis",
+                videoAnalysisDesc: "Get frame-by-frame breakdowns of your swing to identify and correct micro-flaws in your game.",
+                academyPrograms: "Academy Programs",
+                programsSubtitle: "Tailored coaching for every level",
+                juniorDev: "Junior Development",
+                juniorDevTba: "TBA",
+                fundamentals: "Fundamentals",
+                groupSessions: "Group Sessions",
+                coordinationDrills: "Coordination Drills",
+                performancePro: "Performance Pro",
+                mostPopular: "Most Popular",
+                oneOnOne: "1-on-1 Coaching",
+                matchStrategy: "Match Strategy",
+                fitnessPlans: "Fitness Plans",
+                adultClinic: "Adult Clinic",
+                cardioTennis: "Cardio Tennis",
+                skillRefinement: "Skill Refinement",
+                eveningSlots: "Evening Slots",
+                beFirst: "Be the first to know when we launch.",
+                leaveDetails: "Leave your details and Ismar will reach out to you personally for a consultation.",
+                name: "Name",
+                namePlaceholder: "Your Name",
+                email: "Email",
+                emailPlaceholder: "email@example.com",
+                notifyMe: "Notify Me",
+                footerText: "Ismar Academy. All rights reserved."
+            },
+            de: {
+                features: "Funktionen",
+                programs: "Programme",
+                contact: "Kontakt",
+                comingSoon: "Demnächst",
+                heroTitle: "Heben Sie Ihr Spiel auf die nächste Stufe mit",
+                heroSubtitle: "Ismar Salcinovic",
+                heroDesc: "Die nächste Generation des Tennis-Exzellenz kommt. Treten Sie der Warteliste bei für exklusiven Zugang zu Elite-Trainingseinheiten und Platzzeiten.",
+                joinWaitlist: "Warteliste beitreten",
+                exploreFeatures: "Funktionen erkunden",
+                whyTrain: "Warum bei uns trainieren?",
+                proTechnique: "Profi-Technik",
+                proTechniqueDesc: "Meistern Sie die Mechanik hinter kraftvollen Aufschlägen und präzisen Grundschlägen mit Ismars bewährter Methodik.",
+                mentalToughness: "Mentale Stärke",
+                mentalToughnessDesc: "Tennis ist zu 90% mental. Lernen Sie Strategien, um bei wichtigen Matchpunkten ruhig und konzentriert zu bleiben.",
+                videoAnalysis: "Videoanalyse",
+                videoAnalysisDesc: "Erhalten Sie Bild-für-Bild-Aufschlüsselungen Ihres Schwungs, um Mikro-Fehler in Ihrem Spiel zu identifizieren und zu korrigieren.",
+                academyPrograms: "Akademie-Programme",
+                programsSubtitle: "Maßgeschneidertes Training für jedes Level",
+                juniorDev: "Nachwuchsförderung",
+                juniorDevTba: "TBA",
+                fundamentals: "Grundlagen",
+                groupSessions: "Gruppeneinheiten",
+                coordinationDrills: "Koordinationsübungen",
+                performancePro: "Leistungs-Pro",
+                mostPopular: "Am beliebtesten",
+                oneOnOne: "1-zu-1 Coaching",
+                matchStrategy: "Matchstrategie",
+                fitnessPlans: "Fitnesspläne",
+                adultClinic: "Erwachsenen-Clinic",
+                cardioTennis: "Cardio-Tennis",
+                skillRefinement: "Technik-Verfeinerung",
+                eveningSlots: "Abend-Slots",
+                beFirst: "Seien Sie der Erste, der erfährt, wann wir starten.",
+                leaveDetails: "Hinterlassen Sie Ihre Daten und Ismar wird sich persönlich für eine Beratung bei Ihnen melden.",
+                name: "Name",
+                namePlaceholder: "Ihr Name",
+                email: "E-Mail",
+                emailPlaceholder: "email@beispiel.de",
+                notifyMe: "Benachrichtige mich",
+                footerText: "Ismar Academy. Alle Rechte vorbehalten."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+            document.querySelectorAll('[data-i18n-label]').forEach(el => {
+                const key = el.getAttribute('data-i18n-label');
+                if (translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('bg-slate-900', 'text-white');
+                    btn.classList.remove('text-slate-600', 'hover:bg-slate-200');
+                } else {
+                    btn.classList.remove('bg-slate-900', 'text-white');
+                    btn.classList.add('text-slate-600', 'hover:bg-slate-200');
+                }
+            });
+            
+            localStorage.setItem('selectedLang', lang);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLang') || 'en';
+            setLanguage(savedLang);
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+
             document.getElementById('waitlist-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const name = document.getElementById('name').value;
                 const email = document.getElementById('email').value;
+                const currentLang = localStorage.getItem('selectedLang') || 'en';
                 const subject = encodeURIComponent(name + ' - ' + email);
-                const body = encodeURIComponent('Hello 👋\n\nI am interested about the Ismar academy. Can we get in touch?\n\nKind regards,\n' + name);
+                let bodyText;
+                if (currentLang === 'de') {
+                    bodyText = 'Hallo 👋\n\nIch interessiere mich für die Ismar Academy. Können wir uns in Verbindung setzen?\n\nMit freundlichen Grüßen,\n' + name;
+                } else {
+                    bodyText = 'Hello 👋\n\nI am interested about the Ismar academy. Can we get in touch?\n\nKind regards,\n' + name;
+                }
+                const body = encodeURIComponent(bodyText);
                 window.location.href = 'mailto:nicoloadmirale@gmail.com?subject=' + subject + '&body=' + body;
             });
         });
@@ -29,32 +166,42 @@
         <div class="text-2xl font-black tracking-tighter text-slate-900">
             ISMAR<span class="text-yellow-500">ACADEMY</span>
         </div>
-        <div class="hidden md:flex space-x-8 font-medium">
-            <a href="#features" class="hover:text-yellow-600 transition">Features</a>
-            <a href="#pricing" class="hover:text-yellow-600 transition">Programs</a>
-            <a href="#contact" class="hover:text-yellow-600 transition">Contact</a>
+        <div class="hidden md:flex items-center space-x-8 font-medium">
+            <a href="#features" class="hover:text-yellow-600 transition" data-i18n="features">Features</a>
+            <a href="#pricing" class="hover:text-yellow-600 transition" data-i18n="programs">Programs</a>
+            <a href="#contact" class="hover:text-yellow-600 transition" data-i18n="contact">Contact</a>
+            <div class="flex items-center space-x-2 ml-4 bg-slate-100 rounded-full p-1">
+                <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition bg-slate-900 text-white" data-lang="en">EN</button>
+                <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition text-slate-600 hover:bg-slate-200" data-lang="de">DE</button>
+            </div>
+        </div>
+        <div class="flex items-center md:hidden">
+            <div class="flex items-center space-x-2 bg-slate-100 rounded-full p-1">
+                <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition bg-slate-900 text-white" data-lang="en">EN</button>
+                <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition text-slate-600 hover:bg-slate-200" data-lang="de">DE</button>
+            </div>
         </div>
     </nav>
 
     <header class="container mx-auto px-6 py-16 md:py-28 text-center">
-        <span class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest">Coming Soon</span>
+        <span class="bg-yellow-100 text-yellow-700 px-4 py-2 rounded-full text-sm font-bold uppercase tracking-widest" data-i18n="comingSoon">Coming Soon</span>
         <h1 class="mt-8 text-5xl md:text-7xl font-black text-slate-900 leading-tight">
-            Elevate Your Game with <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600">Ismar Salcinovic</span>
+            <span data-i18n="heroTitle">Elevate Your Game with</span> <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-500 to-yellow-600" data-i18n="heroSubtitle">Ismar Salcinovic</span>
         </h1>
-        <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto">
+        <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto" data-i18n="heroDesc">
             The next generation of tennis excellence is arriving. Join the waitlist for exclusive access to elite coaching modules and court sessions.
         </p>
         <div class="mt-10 flex flex-col md:flex-row justify-center gap-4">
-            <a href="#contact" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg">Join the Waitlist</a>
-            <a href="#features" class="bg-white border-2 border-slate-200 px-8 py-4 rounded-xl font-bold hover:border-yellow-500 transition">Explore Features</a>
+            <a href="#contact" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg" data-i18n="joinWaitlist">Join the Waitlist</a>
+            <a href="#features" class="bg-white border-2 border-slate-200 px-8 py-4 rounded-xl font-bold hover:border-yellow-500 transition" data-i18n="exploreFeatures">Explore Features</a>
         </div>
     </header>
 
     <section id="features" class="bg-white py-20">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-black">Why Train With Us?</h2>
+                <h2 class="text-3xl font-black" data-i18n="whyTrain">Why Train With Us?</h2>
                 <div class="h-1 w-20 bg-yellow-500 mx-auto mt-4"></div>
             </div>
             <div class="grid md:grid-cols-3 gap-12">
@@ -62,22 +209,22 @@
                     <div class="w-12 h-12 bg-yellow-500 flex items-center justify-center rounded-lg text-white mb-6">
                         <i class="fas fa-trophy"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Pro-Level Technique</h3>
-                    <p class="text-slate-600">Master the mechanics behind powerful serves and pinpoint groundstrokes with Ismar's proven methodology.</p>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="proTechnique">Pro-Level Technique</h3>
+                    <p class="text-slate-600" data-i18n="proTechniqueDesc">Master the mechanics behind powerful serves and pinpoint groundstrokes with Ismar's proven methodology.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-slate-50 hover:shadow-xl transition">
                     <div class="w-12 h-12 bg-yellow-500 flex items-center justify-center rounded-lg text-white mb-6">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Mental Toughness</h3>
-                    <p class="text-slate-600">Tennis is 90% mental. Learn strategies to stay composed and focused during high-pressure match points.</p>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="mentalToughness">Mental Toughness</h3>
+                    <p class="text-slate-600" data-i18n="mentalToughnessDesc">Tennis is 90% mental. Learn strategies to stay composed and focused during high-pressure match points.</p>
                 </div>
                 <div class="p-8 rounded-2xl bg-slate-50 hover:shadow-xl transition">
                     <div class="w-12 h-12 bg-yellow-500 flex items-center justify-center rounded-lg text-white mb-6">
                         <i class="fas fa-video"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Video Analysis</h3>
-                    <p class="text-slate-600">Get frame-by-frame breakdowns of your swing to identify and correct micro-flaws in your game.</p>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="videoAnalysis">Video Analysis</h3>
+                    <p class="text-slate-600" data-i18n="videoAnalysisDesc">Get frame-by-frame breakdowns of your swing to identify and correct micro-flaws in your game.</p>
                 </div>
             </div>
         </div>
@@ -86,36 +233,36 @@
     <section id="pricing" class="py-20 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-black">Academy Programs</h2>
-                <p class="text-slate-400 mt-2">Tailored coaching for every level</p>
+                <h2 class="text-3xl font-black" data-i18n="academyPrograms">Academy Programs</h2>
+                <p class="text-slate-400 mt-2" data-i18n="programsSubtitle">Tailored coaching for every level</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="border border-slate-700 p-8 rounded-2xl opacity-75 grayscale hover:grayscale-0 transition">
-                    <h3 class="text-lg font-bold">Junior Development</h3>
-                    <p class="text-3xl font-black my-4">TBA</p>
+                    <h3 class="text-lg font-bold" data-i18n="juniorDev">Junior Development</h3>
+                    <p class="text-3xl font-black my-4" data-i18n="juniorDevTba">TBA</p>
                     <ul class="space-y-3 text-slate-400">
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Fundamentals</li>
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Group Sessions</li>
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Coordination Drills</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="fundamentals">Fundamentals</span></li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="groupSessions">Group Sessions</span></li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="coordinationDrills">Coordination Drills</span></li>
                     </ul>
                 </div>
                 <div class="bg-white text-slate-900 p-8 rounded-2xl transform scale-105 shadow-2xl relative">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Most Popular</span>
-                    <h3 class="text-lg font-bold">Performance Pro</h3>
-                    <p class="text-3xl font-black my-4">TBA</p>
+                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-yellow-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase" data-i18n="mostPopular">Most Popular</span>
+                    <h3 class="text-lg font-bold" data-i18n="performancePro">Performance Pro</h3>
+                    <p class="text-3xl font-black my-4" data-i18n="juniorDevTba">TBA</p>
                     <ul class="space-y-3 text-slate-600">
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> 1-on-1 Coaching</li>
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Match Strategy</li>
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Fitness Plans</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="oneOnOne">1-on-1 Coaching</span></li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="matchStrategy">Match Strategy</span></li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="fitnessPlans">Fitness Plans</span></li>
                     </ul>
                 </div>
                 <div class="border border-slate-700 p-8 rounded-2xl opacity-75 grayscale hover:grayscale-0 transition">
-                    <h3 class="text-lg font-bold">Adult Clinic</h3>
-                    <p class="text-3xl font-black my-4">TBA</p>
+                    <h3 class="text-lg font-bold" data-i18n="adultClinic">Adult Clinic</h3>
+                    <p class="text-3xl font-black my-4" data-i18n="juniorDevTba">TBA</p>
                     <ul class="space-y-3 text-slate-400">
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Cardio Tennis</li>
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Skill Refinement</li>
-                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> Evening Slots</li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="cardioTennis">Cardio Tennis</span></li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="skillRefinement">Skill Refinement</span></li>
+                        <li><i class="fas fa-check text-yellow-500 mr-2"></i> <span data-i18n="eveningSlots">Evening Slots</span></li>
                     </ul>
                 </div>
             </div>
@@ -126,20 +273,20 @@
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="bg-yellow-500 rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 shadow-2xl">
                 <div class="md:w-1/2 text-white">
-                    <h2 class="text-4xl font-black leading-tight">Be the first to know when we launch.</h2>
-                    <p class="mt-4 text-yellow-900 font-medium">Leave your details and Ismar will reach out to you personally for a consultation.</p>
+                    <h2 class="text-4xl font-black leading-tight" data-i18n="beFirst">Be the first to know when we launch.</h2>
+                    <p class="mt-4 text-yellow-900 font-medium" data-i18n="leaveDetails">Leave your details and Ismar will reach out to you personally for a consultation.</p>
                 </div>
                 <div class="md:w-1/2 w-full">
                     <form id="waitlist-form" class="bg-white p-6 rounded-2xl shadow-lg space-y-4">
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-1">Name</label>
-                            <input type="text" id="name" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label class="block text-sm font-bold text-slate-700 mb-1" data-i18n-label="name">Name</label>
+                            <input type="text" id="name" data-i18n-placeholder="namePlaceholder" placeholder="Your Name" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-500">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-slate-700 mb-1">Email</label>
-                            <input type="email" id="email" placeholder="email@example.com" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            <label class="block text-sm font-bold text-slate-700 mb-1" data-i18n-label="email">Email</label>
+                            <input type="email" id="email" data-i18n-placeholder="emailPlaceholder" placeholder="email@example.com" class="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-yellow-500">
                         </div>
-                        <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-lg hover:bg-slate-800 transition">
+                        <button type="submit" class="w-full bg-slate-900 text-white font-bold py-4 rounded-lg hover:bg-slate-800 transition" data-i18n="notifyMe">
                             Notify Me
                         </button>
                     </form>
@@ -159,7 +306,7 @@
                 <a href="#" class="hover:text-yellow-500"><i class="fab fa-linkedin"></i></a>
             </div>
             <p class="mt-4 md:mt-0 text-slate-400 text-sm">
-                &copy; 2024 Ismar Academy. All rights reserved.
+                &copy; 2026 <span data-i18n="footerText">Ismar Academy. All rights reserved.</span>
             </p>
         </div>
     </footer>
