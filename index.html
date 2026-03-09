@@ -95,6 +95,48 @@
                 emailPlaceholder: "email@beispiel.de",
                 notifyMe: "Benachrichtige mich",
                 footerText: "Ismar Academy. Alle Rechte vorbehalten."
+            },
+            bhs: {
+                features: "Karakteristike",
+                programs: "Programi",
+                contact: "Kontakt",
+                comingSoon: "Uskoro",
+                heroTitle: "Podignite svoju igru sa",
+                heroSubtitle: "Ismarom Salcinovicem",
+                heroDesc: "Nova generacija teniskog savrsenstva stize. Pridruzite se listi cekanja za ekskluzivan pristup elitnim trening modulima i terminima na terenu.",
+                joinWaitlist: "Pristupite listi cekanja",
+                exploreFeatures: "Istražite karakteristike",
+                whyTrain: "Zašto trenirati sa nama?",
+                proTechnique: "Tehnika profesionalnog nivoa",
+                proTechniqueDesc: "Ovladajte mehanikom mocnih servisa i preciznih udaraca sa Ismarovom provjerenom metodologijom.",
+                mentalToughness: "Mentalna snaga",
+                mentalToughnessDesc: "Tenis je 90% mentalna igra. Naučite strategije da ostanete smireni i fokusirani tokom kriticnih mec poena.",
+                videoAnalysis: "Video analiza",
+                videoAnalysisDesc: "Dobijte kadar-po-kadar analizu svog zamaha kako biste identificirali i ispravili sitne greske u vasoj igri.",
+                academyPrograms: "Akademski programi",
+                programsSubtitle: "Prilagodjeni trening za svaki nivo",
+                juniorDev: "Razvoj mladih",
+                juniorDevTba: "Dolazi uskoro",
+                fundamentals: "Osnove",
+                groupSessions: "Grupe sesije",
+                coordinationDrills: "Vjezbe koordinacije",
+                performancePro: "Performance Pro",
+                mostPopular: "Najpopularnije",
+                oneOnOne: "1-na-1 Trening",
+                matchStrategy: "Strategija mecа",
+                fitnessPlans: "Fitness planovi",
+                adultClinic: "Klinika za odrasle",
+                cardioTennis: "Kardio tenis",
+                skillRefinement: "Usavrsavanje vjestina",
+                eveningSlots: "Vecernji termini",
+                beFirst: "Budite prvi koji ce saznati kada startujemo.",
+                leaveDetails: "Ostavite vase podatke i Ismar ce se osobno javiti vama za konsultaciju.",
+                name: "Ime",
+                namePlaceholder: "Vase ime",
+                email: "Email",
+                emailPlaceholder: "email@primjer.com",
+                notifyMe: "Obavijesti me",
+                footerText: "Ismar Academy. Sva prava rezervisana."
             }
         };
 
@@ -151,6 +193,8 @@
                 let bodyText;
                 if (currentLang === 'de') {
                     bodyText = 'Hallo 👋\n\nIch interessiere mich für die Ismar Academy. Können wir uns in Verbindung setzen?\n\nMit freundlichen Grüßen,\n' + name;
+                } else if (currentLang === 'bhs') {
+                    bodyText = 'Pozdrav 👋\n\nZainteresovan sam za Ismar Academy. Možemo li stupiti u kontakt?\n\nS poštovanjem,\n' + name;
                 } else {
                     bodyText = 'Hello 👋\n\nI am interested about the Ismar academy. Can we get in touch?\n\nKind regards,\n' + name;
                 }
@@ -173,12 +217,14 @@
             <div class="flex items-center space-x-2 ml-4 bg-slate-100 rounded-full p-1">
                 <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition bg-slate-900 text-white" data-lang="en">EN</button>
                 <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition text-slate-600 hover:bg-slate-200" data-lang="de">DE</button>
+                <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition text-slate-600 hover:bg-slate-200" data-lang="bhs">BHSC</button>
             </div>
         </div>
         <div class="flex items-center md:hidden">
             <div class="flex items-center space-x-2 bg-slate-100 rounded-full p-1">
                 <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition bg-slate-900 text-white" data-lang="en">EN</button>
                 <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition text-slate-600 hover:bg-slate-200" data-lang="de">DE</button>
+                <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition text-slate-600 hover:bg-slate-200" data-lang="bhs">BHSC</button>
             </div>
         </div>
     </nav>
