@@ -8,7 +8,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .font-handwriting { font-family: 'Dancing Script', cursive; }
     </style>
     <script>
         const translations = {
@@ -58,7 +60,14 @@
                 gallery: "Gallery",
                 galleryImg1Desc: "Camp and tournament - U12 representative in development tournament program",
                 galleryImg1Location: "Antalya, Turkey",
-                galleryImg1Date: "07.03.2017-20.03.2017"
+                galleryImg1Date: "07.03.2017-20.03.2017",
+                recommendationsTitle: "What Players Say",
+                recommendations: "Recommendations",
+                recommendationsSubtitle: "Hear from our players and parents",
+                rec1Text: "Amazing coaching! My child improved tremendously in just a few months.",
+                rec1Author: "Maria K.",
+                rec2Text: "Professional approach with great attention to each player's development.",
+                rec1Author: "Thomas B."
             },
             de: {
                 features: "Funktionen",
@@ -106,7 +115,14 @@
                 gallery: "Galerie",
                 galleryImg1Desc: "Lager und Turnier - U12 Vertretung im Entwicklungsturnier-Programm",
                 galleryImg1Location: "Antalya, Türkei",
-                galleryImg1Date: "07.03.2017-20.03.2017"
+                galleryImg1Date: "07.03.2017-20.03.2017",
+                recommendationsTitle: "Was Spieler sagen",
+                recommendations: "Empfehlungen",
+                recommendationsSubtitle: "Hören Sie von unseren Spielern und Eltern",
+                rec1Text: "Tolles Training! Mein Kind hat sich in nur wenigen Monaten enorm verbessert.",
+                rec1Author: "Maria K.",
+                rec2Text: "Professioneller Ansatz mit großer Aufmerksamkeit für die Entwicklung jedes Spielers.",
+                rec2Author: "Thomas B."
             },
             bhs: {
                 features: "Karakteristike",
@@ -154,7 +170,14 @@
                 gallery: "Galerija",
                 galleryImg1Desc: "Kamp i turnir reprezentacija do 12 godina u programu razvojnog turnira",
                 galleryImg1Location: "Antalija, Turska",
-                galleryImg1Date: "07.03.2017-20.03.2017"
+                galleryImg1Date: "07.03.2017-20.03.2017",
+                recommendationsTitle: "Šta igrači kažu",
+                recommendations: "Preporuke",
+                recommendationsSubtitle: "Čujte od naših igrača i roditelja",
+                rec1Text: "Odličan trening! Moje dijete se enormno poboljšalo za samo nekoliko mjeseci.",
+                rec1Author: "Marija K.",
+                rec2Text: "Profesionalni pristup sa velikom pažnjom za razvoj svakog igrača.",
+                rec2Author: "Thomas B."
             }
         };
 
@@ -230,8 +253,9 @@
         </div>
         <div class="hidden md:flex items-center space-x-8 font-medium">
             <a href="#features" class="hover:text-yellow-600 transition" data-i18n="features">Features</a>
-            <a href="#gallery" class="hover:text-yellow-600 transition" data-i18n="gallery">Gallery</a>
             <a href="#pricing" class="hover:text-yellow-600 transition" data-i18n="programs">Programs</a>
+            <a href="#recommendations" class="hover:text-yellow-600 transition" data-i18n="recommendationsTitle">Recommendations</a>
+            <a href="#gallery" class="hover:text-yellow-600 transition" data-i18n="gallery">Gallery</a>
             <a href="#contact" class="hover:text-yellow-600 transition" data-i18n="contact">Contact</a>
             <div class="flex items-center space-x-2 ml-4 bg-slate-100 rounded-full p-1">
                 <button class="lang-btn px-3 py-1 rounded-full text-sm font-bold transition bg-slate-900 text-white" data-lang="en">EN</button>
@@ -295,41 +319,6 @@
         </div>
     </section>
 
-    <section id="gallery" class="py-20 bg-slate-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-black" data-i18n="galleryTitle">Training Gallery</h2>
-                <div class="h-1 w-20 bg-yellow-500 mx-auto mt-4"></div>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <img src="img/gallery/1_kids-training.jpg" alt="Kids Training" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3">
-                        <p class="text-white text-xs font-bold leading-tight" data-i18n="galleryImg1Desc">Camp and tournament - U12 representative in development tournament program</p>
-                        <p class="text-yellow-400 text-xs mt-1"><i class="fas fa-map-marker-alt mr-1"></i><span data-i18n="galleryImg1Location">Antalya, Turkey</span></p>
-                        <p class="text-white/80 text-xs"><i class="far fa-calendar mr-1"></i><span data-i18n="galleryImg1Date">07.03.2017-20.03.2017</span></p>
-                    </div>
-                </div>
-                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
-                        <i class="fas fa-image text-4xl text-white"></i>
-                    </div>
-                </div>
-                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
-                        <i class="fas fa-image text-4xl text-white"></i>
-                    </div>
-                </div>
-                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
-                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
-                        <i class="fas fa-image text-4xl text-white"></i>
-                    </div>
-                </div>
-            </div>
-            <p class="text-center text-slate-500 mt-8" data-i18n="galleryComingSoon">More photos coming soon...</p>
-        </div>
-    </section>
-
     <section id="pricing" class="py-20 bg-slate-900 text-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
@@ -366,6 +355,69 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="recommendations" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black" data-i18n="recommendationsTitle">What Players Say</h2>
+                <p class="text-slate-500 mt-2" data-i18n="recommendationsSubtitle">Hear from our players and parents</p>
+                <div class="h-1 w-20 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-slate-50 p-6 rounded-2xl relative">
+                    <div class="absolute -top-3 -left-3 text-4xl text-yellow-500">"</div>
+                    <p class="font-handwriting text-lg text-slate-700 italic mb-4 pl-4" data-i18n="rec1Text">Amazing coaching! My child improved tremendously in just a few months.</p>
+                    <div class="flex items-center gap-3 mt-4">
+                        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">M</div>
+                        <span class="font-bold text-slate-700" data-i18n="rec1Author">Maria K.</span>
+                    </div>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl relative">
+                    <div class="absolute -top-3 -left-3 text-4xl text-yellow-500">"</div>
+                    <p class="font-handwriting text-lg text-slate-700 italic mb-4 pl-4" data-i18n="rec2Text">Professional approach with great attention to each player's development.</p>
+                    <div class="flex items-center gap-3 mt-4">
+                        <div class="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center text-white font-bold">T</div>
+                        <span class="font-bold text-slate-700" data-i18n="rec2Author">Thomas B.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black" data-i18n="galleryTitle">Training Gallery</h2>
+                <div class="h-1 w-20 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <img src="img/gallery/1_kids-training.jpg" alt="Kids Training" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3">
+                        <p class="text-white text-xs font-bold leading-tight" data-i18n="galleryImg1Desc">Camp and tournament - U12 representative in development tournament program</p>
+                        <p class="text-yellow-400 text-xs mt-1"><i class="fas fa-map-marker-alt mr-1"></i><span data-i18n="galleryImg1Location">Antalya, Turkey</span></p>
+                        <p class="text-white/80 text-xs"><i class="far fa-calendar mr-1"></i><span data-i18n="galleryImg1Date">07.03.2017-20.03.2017</span></p>
+                    </div>
+                </div>
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-slate-500 mt-8" data-i18n="galleryComingSoon">More photos coming soon...</p>
         </div>
     </section>
 
