@@ -52,7 +52,13 @@
                 email: "Email",
                 emailPlaceholder: "email@example.com",
                 notifyMe: "Notify Me",
-                footerText: "Ismar Academy. All rights reserved."
+                footerText: "Ismar Academy. All rights reserved.",
+                galleryTitle: "Training Gallery",
+                galleryComingSoon: "More photos coming soon...",
+                gallery: "Gallery",
+                galleryImg1Desc: "Camp and tournament - U12 representative in development tournament program",
+                galleryImg1Location: "Antalya, Turkey",
+                galleryImg1Date: "07.03.2017-20.03.2017"
             },
             de: {
                 features: "Funktionen",
@@ -94,7 +100,13 @@
                 email: "E-Mail",
                 emailPlaceholder: "email@beispiel.de",
                 notifyMe: "Benachrichtige mich",
-                footerText: "Ismar Academy. Alle Rechte vorbehalten."
+                footerText: "Ismar Academy. Alle Rechte vorbehalten.",
+                galleryTitle: "Trainings-Galerie",
+                galleryComingSoon: "Mehr Fotos kommen bald...",
+                gallery: "Galerie",
+                galleryImg1Desc: "Lager und Turnier - U12 Vertretung im Entwicklungsturnier-Programm",
+                galleryImg1Location: "Antalya, Türkei",
+                galleryImg1Date: "07.03.2017-20.03.2017"
             },
             bhs: {
                 features: "Karakteristike",
@@ -136,7 +148,13 @@
                 email: "Email",
                 emailPlaceholder: "email@primjer.com",
                 notifyMe: "Obavijesti me",
-                footerText: "Ismar Academy. Sva prava rezervisana."
+                footerText: "Ismar Academy. Sva prava rezervisana.",
+                galleryTitle: "Galerija treninga",
+                galleryComingSoon: "Više fotografija uskoro...",
+                gallery: "Galerija",
+                galleryImg1Desc: "Kamp i turnir reprezentacija do 12 godina u programu razvojnog turnira",
+                galleryImg1Location: "Antalija, Turska",
+                galleryImg1Date: "07.03.2017-20.03.2017"
             }
         };
 
@@ -212,6 +230,7 @@
         </div>
         <div class="hidden md:flex items-center space-x-8 font-medium">
             <a href="#features" class="hover:text-yellow-600 transition" data-i18n="features">Features</a>
+            <a href="#gallery" class="hover:text-yellow-600 transition" data-i18n="gallery">Gallery</a>
             <a href="#pricing" class="hover:text-yellow-600 transition" data-i18n="programs">Programs</a>
             <a href="#contact" class="hover:text-yellow-600 transition" data-i18n="contact">Contact</a>
             <div class="flex items-center space-x-2 ml-4 bg-slate-100 rounded-full p-1">
@@ -273,6 +292,41 @@
                     <p class="text-slate-600" data-i18n="videoAnalysisDesc">Get frame-by-frame breakdowns of your swing to identify and correct micro-flaws in your game.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-black" data-i18n="galleryTitle">Training Gallery</h2>
+                <div class="h-1 w-20 bg-yellow-500 mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <img src="img/gallery/kids-training.jpg" alt="Kids Training" class="w-full h-full object-cover group-hover:scale-110 transition duration-300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-3">
+                        <p class="text-white text-xs font-bold leading-tight" data-i18n="galleryImg1Desc">Camp and tournament - U12 representative in development tournament program</p>
+                        <p class="text-yellow-400 text-xs mt-1"><i class="fas fa-map-marker-alt mr-1"></i><span data-i18n="galleryImg1Location">Antalya, Turkey</span></p>
+                        <p class="text-white/80 text-xs"><i class="far fa-calendar mr-1"></i><span data-i18n="galleryImg1Date">07.03.2017-20.03.2017</span></p>
+                    </div>
+                </div>
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-white"></i>
+                    </div>
+                </div>
+                <div class="aspect-square bg-slate-200 rounded-xl overflow-hidden relative group">
+                    <div class="absolute inset-0 bg-yellow-500 flex items-center justify-center">
+                        <i class="fas fa-image text-4xl text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-slate-500 mt-8" data-i18n="galleryComingSoon">More photos coming soon...</p>
         </div>
     </section>
 
